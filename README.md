@@ -33,14 +33,14 @@ interface Employee extends Person {
 }
 
 type Developer = Person & { programmingLanguage: string };
+```
 
 
-
-## 🔹 1. Difference Between `any`, `unknown`, and `never` in TypeScript
+## ✨ 2. Difference Between `any`, `unknown`, and `never` in TypeScript
 
 TypeScript introduces strict typing to JavaScript, helping us avoid runtime errors. Understanding the special types `any`, `unknown`, and `never` is critical for writing safer and more predictable code.
 
-### ✅ `any`
+### `any`
 - The most permissive type.
 - Disables all type-checking for that variable.
 - You can assign any value and call any property or method on it without compiler errors.
@@ -50,7 +50,13 @@ let anything: any = "Hello";
 anything = 42;
 anything = true;
 anything.doSomething(); // No error, even if doSomething doesn't exist
+```
 
+### unknown
+- Like any, it can accept any value.
+- Unlike any, you must check the type before using the value.
+
+```ts
 
 let value: unknown = "Hello";
 
@@ -58,15 +64,17 @@ if (typeof value === "string") {
   console.log(value.toUpperCase()); // ✅ Safe
 }
 // value.toUpperCase(); ❌ Error: Object is of type 'unknown'
+```
 
 🔸 When to use: When you want flexibility but still keep type safety.
 
 
 
-# never
-* Represents values that never occur.
-* Used in functions that never return (e.g., throw errors or infinite loops).
+### never
+- Represents values that never occur.
+- Used in functions that never return (e.g., throw errors or infinite loops).
 
+```ts
 
 function throwError(message: string): never {
   throw new Error(message);
@@ -75,3 +83,4 @@ function throwError(message: string): never {
 function infiniteLoop(): never {
   while (true) {}
 }
+```
