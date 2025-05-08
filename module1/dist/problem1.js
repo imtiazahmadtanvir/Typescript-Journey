@@ -1,4 +1,7 @@
 "use strict";
+// Description: Create a function that takes a string and an optional boolean.
+// 1.If the boolean is true or not provided, return the string in uppercase.
+// 2.If the boolean is false, return the string in lowercase.
 function formatString(input, toUpper = true) {
     return toUpper ? input.toUpperCase() : input.toLowerCase();
 }
